@@ -1,0 +1,24 @@
+{
+  "name": "backEndBookCheckOut",
+  "version": "1.0.0",
+  "description": "A mobile app to check out books and to check them in (back end only).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/landaverde-jorge/backEndBookCheckOut.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/landaverde-jorge/backEndBookCheckOut/issues"
+  },
+  "homepage": "https://github.com/landaverde-jorge/backEndBookCheckOut#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.8"
+  }
+}
