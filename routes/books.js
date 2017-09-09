@@ -11,11 +11,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  book.create(req.body)
-    .then(result => {
-      res.send(result)
-    })
-    .catch(next);
+  res.send('respond with a resource books');
+
+  // book.create(req.body)
+  //   .then(result => {
+  //     res.send(result)
+  //   })
+  //   .catch(next);
 });
 
 router.get('/:bookId', function(req, res, next) {
