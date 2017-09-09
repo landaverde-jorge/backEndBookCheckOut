@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const book = require('../models/book');
 
-router.get('/', function(req, res, next) {
+router.get('/books', function(req, res, next) {
   book.query()
     .then(result => {
       res.send(result)
