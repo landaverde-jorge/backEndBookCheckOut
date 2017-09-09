@@ -12,6 +12,14 @@ var users = require('./routes/users');
 
 var app = express();
 
+// mongoose.connect('mongodb://localhost/bookcheckout');
+//
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   // we're connected!
+// });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -27,7 +35,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/books', books);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

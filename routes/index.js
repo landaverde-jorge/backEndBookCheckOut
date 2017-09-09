@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/bookcheckout');
+mongoose.connect('mongodb://jorge_landaverde:football101@ds129344.mlab.com:29344/bookcheckout',  ['books']);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
