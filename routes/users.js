@@ -3,9 +3,12 @@ var router = express.Router();
 const user = require('../models/user');
 
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  book.query()
+    .then(result => {
+      res.send(result)
+    })
+    .catch(next);
 });
-
 router.post('/', function(req, res, next) {
   user.create(req.body)
     .then(result => {

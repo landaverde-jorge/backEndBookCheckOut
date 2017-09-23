@@ -5,7 +5,8 @@ var bookSchema = mongoose.Schema({
     author: String,
     description: String,
     quantity: String,
-    available: Number
+    available: Number,
+    active: Boolean
 });
 
 module.exports = mongoose.model('book', bookSchema);

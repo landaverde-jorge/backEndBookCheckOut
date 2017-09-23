@@ -18,9 +18,4 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/Library', function(req, res, next){
-  var Schema = mongoose.Schema;
-
-});
-
 module.exports = router;
