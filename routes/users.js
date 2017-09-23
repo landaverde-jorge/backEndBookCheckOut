@@ -3,7 +3,7 @@ var router = express.Router();
 const user = require('../models/user');
 
 router.get('/', function(req, res, next) {
-  book.query()
+  user.query()
     .then(result => {
       res.send(result)
     })
