@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     .catch(next);
 });
 router.get('/authenticate', function(req, res, next) {
-  res.redirect("http://example.com")
+  res.redirect("app://bookcheckout")
 });
 router.post('/', function(req, res, next) {
   user.create(req.body)
