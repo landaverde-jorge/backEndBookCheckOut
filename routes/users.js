@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
     })
     .catch(next);
 });
+router.get('/authenticate', function(req, res, next) {
+  res.redirect("http://example.com")
+});
 router.post('/', function(req, res, next) {
   user.create(req.body)
     .then(result => {
