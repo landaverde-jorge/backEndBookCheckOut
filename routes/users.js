@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
     .catch(next);
 });
 router.get('/authenticate', function(req, res, next) {
-  res.redirect("app://bookcheckout")
+  res.redirect("app://bookcheckout?token=helloworld")
 });
 router.post('/', function(req, res, next) {
   user.create(req.body)
