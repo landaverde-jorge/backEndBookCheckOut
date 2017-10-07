@@ -21,13 +21,13 @@ router.get('/authenticate', function(req, res, next) {
 
   superagent.get(ACCESS_URL)
   .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
-  .end((err, res) => {
+  .end((err, response) => {
     if (err) { return console.log(err); }
-    console.log(res, "================================",res.body)
+    console.log(response, "================================",response.body)
 
     // const token = JSON.stringify(res.body.)
 
-    res.redirect("app://bookcheckout?token="+res.body.user.name)
+    res.redirect("app://bookcheckout?token="+response.body.user.name)
   });
 
 });
