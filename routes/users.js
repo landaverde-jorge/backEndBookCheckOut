@@ -25,10 +25,10 @@ router.get('/authenticate', function(req, res, next) {
     if (err) { return console.log(err); }
     console.log(response, "================================",response.body)
 
-    //const token = JSON.stringify(response.body)
+    const token = response.body
 
-    //res.redirect("app://bookcheckout?token="+token)
-    res.redirect("app://bookcheckout?token=helloworld")
+    res.redirect("app://bookcheckout?token="+token)
+    //res.redirect("app://bookcheckout?token=helloworld")
   });
 
 });
