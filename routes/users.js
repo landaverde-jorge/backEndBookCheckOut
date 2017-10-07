@@ -26,7 +26,9 @@ router.get('/authenticate', function(req, res, next) {
     console.log(res, "================================",res.body)
   });
 
-  res.redirect("app://bookcheckout?token=helloworld")
+  const token = JSON.stringify(res.body)
+
+  res.redirect("app://bookcheckout?token="+token)
 
 });
 router.post('/', function(req, res, next) {
