@@ -20,7 +20,7 @@ router.get('/authenticate', function(req, res, next) {
   const code = req.query.code
 
   superagent.get(ACCESS_URL)
-  .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET}, code: code)
+  .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
   .end((err, res) => {
     if (err) { return console.log(err); }
     console.log(res, "================================",res.body)
