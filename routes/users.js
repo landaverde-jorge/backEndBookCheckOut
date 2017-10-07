@@ -24,11 +24,11 @@ router.get('/authenticate', function(req, res, next) {
   .end((err, res) => {
     if (err) { return console.log(err); }
     console.log(res, "================================",res.body)
+
+    const token = JSON.stringify(res.body)
+
+    res.redirect("app://bookcheckout?token="+token)
   });
-
-  const token = JSON.stringify(res.body)
-
-  res.redirect("app://bookcheckout?token="+token)
 
 });
 router.post('/', function(req, res, next) {
