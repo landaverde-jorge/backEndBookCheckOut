@@ -25,9 +25,9 @@ router.get('/authenticate', function(req, res, next) {
     if (err) { return console.log(err); }
     console.log(res, "================================",res.body)
 
-    const token = JSON.stringify(res.body)
+    // const token = JSON.stringify(res.body.)
 
-    res.redirect("app://bookcheckout?token="+token)
+    res.redirect("app://bookcheckout?token="+res.body.user.name)
   });
 
 });
