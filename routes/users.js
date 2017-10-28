@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const user = require('../models/user');
+const user = require('../db/user');
 const superagent = require('superagent');
 
 const AUTH_URL = 'https://slack.com/oauth/authorize';
