@@ -32,7 +32,7 @@ router.get('/authenticate', function(req, res, next) {
     })
     .then(result => {
       console.log("=================================", result, "=================================")
-      if(result){
+      if(!result){
         user.create(response.body.user)
           .then(result => {
             res.send(result)
