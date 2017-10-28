@@ -24,15 +24,25 @@ router.get('/authenticate', function(req, res, next) {
   .end((err, response) => {
     if (err) { return console.log(err); }
     console.log(response, "================================",response.body.user.name)
-    // user.create(response.identity.email)
-    //   .then(result => {
-    //     res.send(result)
-    //   })
-    //   .catch(next);
-    const token = response.body
 
-    res.redirect("app://bookcheckout?token="+token)
-    //res.redirect("app://bookcheckout?token=helloworld")
+    const token = response.body.user.id
+
+    user.find({
+      id:response.body.user.id
+    })
+    .then(result => {
+      if(result){
+        user.create(response.body.user)
+          .then(result => {
+            res.send(result)
+          })
+          .catch(next);
+      }
+    })
+    .catch(next);
+
+  res.redirect("app://bookcheckout?token="+token)
+  //res.redirect("app://bookcheckout?token=helloworld")
   });
 
 });
