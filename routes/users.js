@@ -23,8 +23,8 @@ router.get('/authenticate', function(req, res, next) {
   .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
   .end((err, response) => {
     if (err) { return console.log(err); }
-    console.log(response, "================================",response.body, "===========================", response.user)
-    user.create(response.user)
+    console.log(response, "================================",response.body)
+    user.create(response.body.user.name, response.body.user.email, response.body.user.id)
       .then(result => {
         res.send(result)
       })
