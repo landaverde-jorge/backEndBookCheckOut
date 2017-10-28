@@ -23,12 +23,12 @@ router.get('/authenticate', function(req, res, next) {
   .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
   .end((err, response) => {
     if (err) { return console.log(err); }
-    console.log(response, "================================",response.body)
-    user.create(response.body.identity.email)
-      .then(result => {
-        res.send(result)
-      })
-      .catch(next);
+    console.log(response, "================================",response.body.identity.email)
+    // user.create(response.identity.email)
+    //   .then(result => {
+    //     res.send(result)
+    //   })
+    //   .catch(next);
     const token = response.body
 
     res.redirect("app://bookcheckout?token="+token)
