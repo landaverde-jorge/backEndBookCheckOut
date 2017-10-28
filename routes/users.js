@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
     })
     .catch(next);
 });
-router.post('/authenticate', function(req, res, next) {
+router.get('/authenticate', function(req, res, next) {
   const code = req.query.code
 
   superagent.get(ACCESS_URL)
