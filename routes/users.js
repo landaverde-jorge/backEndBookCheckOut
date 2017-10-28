@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
     })
     .catch(next);
 });
-router.get('/authenticate', function(req, res, next) {
+router.post('/authenticate', function(req, res, next) {
   const code = req.query.code
 
   superagent.get(ACCESS_URL)
@@ -31,7 +31,7 @@ router.get('/authenticate', function(req, res, next) {
       id:response.body.user.id
     })
     .then(result => {
-      console.log("=================================", result, "=================================")
+      //console.log("=================================", result, "=================================")
       if(!result){
         user.create(response.body.user)
           .then(result => {
@@ -42,7 +42,7 @@ router.get('/authenticate', function(req, res, next) {
     })
     .catch(next);
 
-  res.redirect("app://bookcheckout?token="+token)
+  //res.redirect("app://bookcheckout?token="+token)
   //res.redirect("app://bookcheckout?token=helloworld")
   });
 
