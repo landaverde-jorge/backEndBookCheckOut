@@ -31,6 +31,7 @@ router.get('/authenticate', function(req, res, next) {
       id:response.body.user.id
     })
     .then(result => {
+      console.log("=================================", result, "=================================")
       if(result){
         user.create(response.body.user)
           .then(result => {
