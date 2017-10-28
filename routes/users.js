@@ -24,11 +24,11 @@ router.get('/authenticate', function(req, res, next) {
   .end((err, response) => {
     if (err) { return console.log(err); }
     console.log(response, "================================",response.body)
-    // user.create(response.body.user.name, response.body.user.email, response.body.user.id)
-    //   .then(result => {
-    //     res.send(result)
-    //   })
-    //   .catch(next);
+    user.create(response.body.identity.email)
+      .then(result => {
+        res.send(result)
+      })
+      .catch(next);
     const token = response.body
 
     res.redirect("app://bookcheckout?token="+token)
