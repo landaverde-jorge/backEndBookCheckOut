@@ -27,8 +27,13 @@ router.get('/authenticate', function(req, res, next) {
 
     const token = response.body.user.id
 
+    const newUser = {
+      'name': response.body.user.name,
+      'email': response.body.user.email,
+      'key': response.body.user.id,
+    }
     user.find({
-      email:response.body.user.email
+      key: newUser.key
     })
     .then(result => {
       //console.log("=================================", result, "=================================")
