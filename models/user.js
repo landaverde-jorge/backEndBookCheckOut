@@ -7,4 +7,4 @@ exports.create = (data) => {
 }
 exports.find = (id) => {return User.findById(id)}
 exports.findBySlackId = (id) => {return User.find({key:id})}
-exports.authenticate = async (id) => {return User.findById(id)}
+exports.authenticate = (id) => {return User.findById(id)}
