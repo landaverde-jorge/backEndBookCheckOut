@@ -52,7 +52,7 @@ router.get('/authenticate', function(req, res, next) {
     // .catch(next);
 
     // res.redirect("app://bookcheckout?token="+token)
-  });
+  // });
 
 });
 router.post('/', function(req, res, next) {
