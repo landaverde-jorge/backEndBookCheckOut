@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
     })
     .catch(next);
 });
-router.get('/authenticate', function(req, res, next) {
+router.get('/authenticate', async function(req, res, next) {
   const code = req.query.code
 
   superagent.get(ACCESS_URL)
@@ -45,7 +45,7 @@ router.get('/authenticate', function(req, res, next) {
     // })
     // .catch(next);
 
-  res.redirect("app://bookcheckout?token="+token)
+    res.redirect("app://bookcheckout?token="+token)
   //res.redirect("app://bookcheckout?token=helloworld")
   });
 
