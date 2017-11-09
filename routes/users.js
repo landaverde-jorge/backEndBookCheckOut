@@ -16,23 +16,29 @@ router.get('/', function(req, res, next) {
     })
     .catch(next);
 });
-router.get('/authenticate', async function(req, res, next) {
-  const code = req.query.code
+router.get('/authenticate', function(req, res, next) {
+  user.authenticate(req.query.code)
+  .then( result => {
+    res.redirect("app://bookcheckout?token=helloworld")
+  })
+  .catch(next)
 
-  superagent.get(ACCESS_URL)
-  .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
-  .end((err, response) => {
-    if (err) { return console.log(err); }
-    console.log(response, "================================",response.body)
-    console.log("=================================", ACCESS_URL)
-
-    const token = response.body.user.id
-
-    const newUser = {
-      'name': response.body.user.name,
-      'email': response.body.user.email,
-      'key': response.body.user.id,
-    }
+  // const code = req.query.code
+  //
+  // superagent.get(ACCESS_URL)
+  // .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
+  // .end((err, response) => {
+  //   if (err) { return console.log(err); }
+  //   console.log(response, "================================",response.body)
+  //   console.log("=================================", ACCESS_URL)
+  //
+  //   const token = response.body.user.id
+  //
+  //   const newUser = {
+  //     'name': response.body.user.name,
+  //     'email': response.body.user.email,
+  //     'key': response.body.user.id,
+  //   }
     // user.findBySlackId(newUser.key)
     // .then(result => {
     //   if(!result){
@@ -45,8 +51,7 @@ router.get('/authenticate', async function(req, res, next) {
     // })
     // .catch(next);
 
-    res.redirect("app://bookcheckout?token="+token)
-  //res.redirect("app://bookcheckout?token=helloworld")
+    // res.redirect("app://bookcheckout?token="+token)
   });
 
 });
