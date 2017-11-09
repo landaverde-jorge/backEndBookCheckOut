@@ -14,6 +14,9 @@ exports.authenticate = async (code) => {
     .get("https://slack.com/api/oauth.access")
     .query({ client_id:"232151668245.232194114629", client_secret: "6fad7827bff771218d75a1eb2cc4751e", code: code})
   ).body
+  const user = await User.find({key:slackUser.user.id})
 
-  console.log("+++++++++++++++++++++", slackUser)
+  console.log("+++++++++++++++++++++", slackUser.user.id)
+  console.log("+++++++++++++++++++++", user)
+
 }
