@@ -33,20 +33,19 @@ router.get('/authenticate', function(req, res, next) {
       'email': response.body.user.email,
       'key': response.body.user.id,
     }
-    user.findBySlackId(newUser.key)
-    .then(result => {
-      //console.log("=================================", result, "=================================")
-      if(!result){
-        user.create(response.body.user)
-          .then(result => {
-            res.send(result)
-          })
-          .catch(next);
-      }
-    })
-    .catch(next);
+    // user.findBySlackId(newUser.key)
+    // .then(result => {
+    //   if(!result){
+    //     user.create(response.body.user)
+    //       .then(result => {
+    //         res.send(result)
+    //       })
+    //       .catch(next);
+    //   }
+    // })
+    // .catch(next);
 
-  //res.redirect("app://bookcheckout?token="+token)
+  res.redirect("app://bookcheckout?token="+token)
   //res.redirect("app://bookcheckout?token=helloworld")
   });
 
