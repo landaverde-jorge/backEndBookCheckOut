@@ -24,6 +24,7 @@ router.get('/authenticate', function(req, res, next) {
   .end((err, response) => {
     if (err) { return console.log(err); }
     console.log(response, "================================",response.body)
+    console.log("=================================", ACCESS_URL)
 
     const token = response.body.user.id
 
