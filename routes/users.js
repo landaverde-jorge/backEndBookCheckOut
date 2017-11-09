@@ -23,7 +23,7 @@ router.get('/authenticate', function(req, res, next) {
   .query({ client_id: CLIENT_ID, client_secret: CLIENT_SECRET, code: code})
   .end((err, response) => {
     if (err) { return console.log(err); }
-    console.log(response, "================================",response.body.user.name)
+    console.log(response, "================================",response.body)
 
     const token = response.body.user.id
 
