@@ -1,4 +1,5 @@
 const User = require('../db/user');
+const superagent = require('superagent');
 
 exports.query = () => {return User.find({})}
 exports.create = (data) => {
