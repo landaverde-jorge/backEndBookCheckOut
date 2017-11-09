@@ -32,9 +32,7 @@ router.get('/authenticate', function(req, res, next) {
       'email': response.body.user.email,
       'key': response.body.user.id,
     }
-    user.find({
-      key: newUser.key
-    })
+    user.findBySlackId(newUser.key)
     .then(result => {
       //console.log("=================================", result, "=================================")
       if(!result){

@@ -6,3 +6,4 @@ exports.create = (data) => {
   return user.save();
 }
 exports.find = (id) => {return User.findById(id)}
+exports.findBySlackId = (id) => {return User.find({key:id})}
