@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
+require(‘dotenv’).load();
 
-mongoose.connect('mongodb://ds129344.mlab.com:29344/bookcheckout', {
-  user: 'jorge_landaverde',
-  pass: 'football101'
+mongoose.connect( mongoPath, {
+  user: mongoUser,
+  pass: mongoPass
 });
 
 var db = mongoose.connection;

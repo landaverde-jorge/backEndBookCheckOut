@@ -1,13 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const user = require('../models/user');
-const superagent = require('superagent');
-
-const AUTH_URL = 'https://slack.com/oauth/authorize';
-const CLIENT_ID = "232151668245.232194114629";
-const CLIENT_SECRET = "6fad7827bff771218d75a1eb2cc4751e";
-const SCOPES = 'identity.basic,identity.team,identity.avatar,identity.email';
-const ACCESS_URL = "https://slack.com/api/oauth.access";
 
 router.get('/', function(req, res, next) {
   user.query()
